@@ -1,7 +1,7 @@
 FROM openjdk:8
 
 # Component versions
-ENV ANDROID_COMPONENTS platform-tools,build-tools-23.0.1,build-tools-25.0.1,android-23,android-25
+ENV ANDROID_COMPONENTS platform-tools,build-tools-23.0.1,build-tools-25.0.2,android-23,android-25
 ENV GOOGLE_COMPONENTS extra-android-m2repository,extra-google-m2repository
 ENV ANDROID_TOOLS_URL https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
 ENV NODE_VERSION 6.9.5
