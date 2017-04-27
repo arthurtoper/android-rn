@@ -1,8 +1,8 @@
 FROM openjdk:8
 
 # Component versions
-ENV ANDROID_COMPONENTS platform-tools,build-tools-23.0.1,build-tools-25.0.2,android-23,android-25
-ENV GOOGLE_COMPONENTS extra-android-m2repository,extra-google-m2repository
+ENV ANDROID_COMPONENTS "build-tools;23.0.1 build-tools;25.0.2 platforms;android-23 platforms;android-24 platforms;android-25"
+ENV GOOGLE_COMPONENTS "extras;android;m2repository extras;google;m2repository"
 ENV ANDROID_TOOLS_URL https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
 ENV NODE_VERSION 6.9.5
 ENV RUBY_MAJOR 2.4
@@ -28,11 +28,11 @@ RUN unzip androidtools.zip -d /usr/local/android-sdk-linux
 RUN rm androidtools.zip
 ENV ANDROID_HOME /usr/local/android-sdk-linux
 ENV ANDROID_SDK /usr/local/android-sdk-linux
-ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:$PATH
+ENV PATH ${ANDROID_HOME}/tools:$ANDROID_HOME/platform-tools:${ANDROID_HOME}/tools/bin:$PATH
 
 # Android SDK components
-RUN echo y | android update sdk --no-ui --all --filter "${ANDROID_COMPONENTS}" ; \
-	echo y | android update sdk --no-ui --all --filter "${GOOGLE_COMPONENTS}"
+RUN yes | sdkmanager ${ANDROID_COMPONENTS} ; \
+	yes | sdkmanager ${GOOGLE_COMPONENTS}
 
 # Node.js
 RUN groupadd --gid 1000 node \
