@@ -4,7 +4,7 @@ FROM openjdk:8
 ENV ANDROID_COMPONENTS "build-tools;23.0.1 build-tools;25.0.2 platforms;android-23 platforms;android-24 platforms;android-25"
 ENV GOOGLE_COMPONENTS "extras;android;m2repository extras;google;m2repository"
 ENV ANDROID_TOOLS_URL https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
-ENV NODE_VERSION 6.9.5
+ENV NODE_VERSION 8.1.0
 ENV RUBY_MAJOR 2.4
 ENV RUBY_VERSION 2.4.0
 ENV RUBY_DOWNLOAD_SHA256 3a87fef45cba48b9322236be60c455c13fd4220184ce7287600361319bb63690
